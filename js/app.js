@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   CUCCIAFLIX — Cagno & Penuto
+   CUCCIAFLIX — Cagno & Pennuto
    Un cinema privato per il 22 novembre 2026.
    ═══════════════════════════════════════════════════════════ */
 
@@ -262,7 +262,7 @@
       </button>`).join('');
 
     return items + `
-      <p class="sheet-foot">Due video, una storia sola.<br>Buon anniversario, Penuto.</p>`;
+      <p class="sheet-foot">Due video, una storia sola.<br>Buon anniversario, Pennuto.</p>`;
   }
 
   function settingsHTML() {
