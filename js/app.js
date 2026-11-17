@@ -55,6 +55,16 @@
 
   /* ── preferenze ────────────────────────────────────────── */
 
+  const isStandalone =
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    window.navigator.standalone === true;
+  const isIOS =
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  document.documentElement.classList.toggle('is-standalone', !!isStandalone);
+  document.documentElement.classList.toggle('is-ios', isIOS);
+
   const PREFS_KEY = 'cucciaflix.v1';
   const prefs = { sound: true, motion: true, brightness: 0 };
   try {
@@ -140,10 +150,29 @@
 
   let introDone = false;
 
+  // Su iPhone Safari non esiste la Fullscreen API: lì l'unico vero
+  // schermo intero è "Aggiungi a Home". Su iPad/Android invece
+  // possiamo entrare in fullscreen e bloccare l'orientamento.
+  function tryFullscreen() {
+    if (isStandalone) return;
+    if (!document.fullscreenEnabled || !document.documentElement.requestFullscreen) return;
+    if (!window.matchMedia('(pointer: coarse)').matches) return;
+
+    document.documentElement
+      .requestFullscreen({ navigationUI: 'hide' })
+      .then(() => {
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock('landscape').catch(() => {});
+        }
+      })
+      .catch(() => {});
+  }
+
   function dismissSplash() {
     if (introDone) return;
     introDone = true;
     playSting();
+    tryFullscreen();
     splash.classList.add('is-going');
     splash.setAttribute('aria-hidden', 'true');
     window.setTimeout(() => { splash.style.display = 'none'; }, 1400);

@@ -2,7 +2,7 @@
    Tiene l'interfaccia disponibile anche senza rete.
    I video, ovviamente, hanno bisogno di connessione. */
 
-const CACHE = 'cucciaflix-v1';
+const CACHE = 'cucciaflix-v2';
 
 const ASSETS = [
   './',
@@ -57,6 +57,23 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
+  // CSS e JS sempre freschi quando c'è rete: così le modifiche
+  // arrivano subito sul telefono, anche senza cambiare versione.
+  if (request.destination === 'style' || request.destination === 'script') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
     );
     return;
   }

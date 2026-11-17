@@ -35,6 +35,12 @@ sw.js                 offline shell
 4. Turn the phone **horizontally** (the app is designed for landscape).
    If it does not rotate, disable orientation lock in the Control Center.
 
+> **Why "Aggiungi a Home"?** Safari on iPhone cannot hide its own toolbars:
+> the Fullscreen API is still not available on iPhone (WebKit bug 206854,
+> open since 2020). Adding the site to the home screen is the only way to get
+> true full screen. The app shows these instructions on the splash screen and
+> in the "Ruota il telefono" screen.
+
 ## Editing
 
 - Video list and titles: `js/app.js`, the `VIDEOS` object at the top.
