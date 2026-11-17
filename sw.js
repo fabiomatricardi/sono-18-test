@@ -2,7 +2,7 @@
    Tiene l'interfaccia disponibile anche senza rete.
    I video, ovviamente, hanno bisogno di connessione. */
 
-const CACHE = 'cucciaflix-v2';
+const CACHE = 'cucciaflix-v3';
 
 const ASSETS = [
   './',
@@ -48,46 +48,22 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
   if (new URL(request.url).origin !== self.location.origin) return;
 
-  if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE).then((cache) => cache.put(request, copy));
-          return response;
-        })
-        .catch(() => caches.match('./index.html'))
-    );
-    return;
-  }
-
-  // CSS e JS sempre freschi quando c'è rete: così le modifiche
-  // arrivano subito sul telefono, anche senza cambiare versione.
-  if (request.destination === 'style' || request.destination === 'script') {
-    event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response && response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE).then((cache) => cache.put(request, copy));
-          }
-          return response;
-        })
-        .catch(() => caches.match(request))
-    );
-    return;
-  }
-
+  // Rete prima, cache come rete di sicurezza: così non si vede mai
+  // un HTML nuovo con un CSS vecchio (o viceversa).
   event.respondWith(
-    caches.match(request).then((cached) => {
-      if (cached) return cached;
-      return fetch(request).then((response) => {
+    fetch(request)
+      .then((response) => {
         if (response && response.ok) {
           const copy = response.clone();
           caches.open(CACHE).then((cache) => cache.put(request, copy));
         }
         return response;
-      });
-    })
+      })
+      .catch(async () => {
+        const cached = await caches.match(request, { ignoreSearch: true });
+        if (cached) return cached;
+        if (request.mode === 'navigate') return caches.match('./index.html');
+        return Response.error();
+      })
   );
 });

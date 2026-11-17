@@ -47,8 +47,10 @@ sw.js                 offline shell
 - Letter text: `index.html`, the `<article class="letter-card">` block.
 - Names / date / eyebrow: `index.html`, the `.titleblock` block.
 
-After changing any cached file, bump `CACHE = 'cucciaflix-v1'` in `sw.js`
-so the iPhone picks up the new version.
+After changing `css/style.css` or `js/app.js`, bump the version in `index.html`
+(`style.css?v=3` → `?v=4`). The service worker is network-first, so a normal
+reload is enough; the query string also protects against browsers still running
+an older service worker.
 
 ## Credits
 
