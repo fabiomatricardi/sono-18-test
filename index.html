@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>CUCCIAFLIX · Cagno &amp; Penuto</title>
+<meta name="description" content="Il nostro cinema privato. Diciotto anni insieme, e il prossimo capitolo è appena iniziato.">
+<meta name="theme-color" content="#050506">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CUCCIAFLIX">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="CUCCIAFLIX · Cagno &amp; Penuto">
+<meta property="og:description" content="Il nostro cinema privato. 22 novembre 2026.">
+<meta property="og:image" content="assets/family-1280.webp">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="icon" href="assets/icons/icon-192.png" sizes="192x192">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/app.js" defer></script>
+</head>
+<body>
+
+<main id="app">
+
+  <!-- ══════════ HOME ══════════ -->
+  <section id="home" class="home" aria-label="CUCCIAFLIX — buon anniversario">
+    <div class="bg" id="bg">
+      <img src="assets/family-2048.webp"
+           srcset="assets/family-1280.webp 1280w, assets/family-2048.webp 2048w"
+           sizes="100vw"
+           alt="Fabio, Aurelia, Rebecca e Pepe"
+           draggable="false">
+    </div>
+    <div class="scrim scrim-top"></div>
+    <div class="scrim scrim-bottom"></div>
+    <div class="vignette"></div>
+    <div class="grain"></div>
+
+    <header class="topbar">
+      <div class="clock-wrap">
+        <div class="clock" id="clock">--:--</div>
+        <div class="dateline" id="dateline">—</div>
+      </div>
+      <nav class="sysbtns" aria-label="Comandi">
+        <button class="sysbtn" id="btnBrightness" type="button" aria-label="Luminosità">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.1"/>
+            <path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3L17.1 6.9M6.9 17.1l-1.6 1.6"/>
+          </svg>
+        </button>
+        <button class="sysbtn" id="btnTitles" type="button" aria-label="Tutti i titoli">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="3.6" y="3.6" width="7" height="7" rx="1.7"/>
+            <rect x="13.4" y="3.6" width="7" height="7" rx="1.7"/>
+            <rect x="3.6" y="13.4" width="7" height="7" rx="1.7"/>
+            <rect x="13.4" y="13.4" width="7" height="7" rx="1.7"/>
+          </svg>
+        </button>
+        <button class="sysbtn" id="btnSettings" type="button" aria-label="Impostazioni">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.1"/>
+            <path d="M19.1 14.8a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.1a1.65 1.65 0 0 0-1.08-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.1a1.65 1.65 0 0 0 1.51-1.08 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.1a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.1a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <div class="stage-bottom">
+      <div class="titleblock">
+        <p class="eyebrow">
+          <span class="wordmark">CUCCIAFLIX</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span>buon anniversario</span>
+        </p>
+        <h1 class="names">Cagno <span class="amp">&amp;</span> Penuto</h1>
+        <p class="meta">
+          <span>22 novembre 2026</span>
+          <span class="dot" aria-hidden="true">·</span>
+          <span>dal 2008</span>
+          <button class="heart" id="btnLetter" type="button" aria-label="Apri la lettera">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.6s-8-4.9-8-10.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 3.4c0 5.3-8 10.2-8 10.2z"/></svg>
+          </button>
+        </p>
+      </div>
+
+      <div class="cards" role="list" aria-label="I nostri video">
+        <button class="card" type="button" role="listitem" data-video="ADAOK8RKDC4">
+          <img class="card-art" src="assets/thumb-storia.webp" alt="" draggable="false">
+          <span class="card-grad" aria-hidden="true"></span>
+          <span class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5.2v13.6L19 12z"/></svg>
+          </span>
+          <span class="card-title">La storia di noi</span>
+          <span class="card-sub">Il nostro film</span>
+        </button>
+
+        <button class="card" type="button" role="listitem" data-video="ApedpZR86LM">
+          <img class="card-art" src="assets/thumb-avventure.webp" alt="" draggable="false">
+          <span class="card-grad" aria-hidden="true"></span>
+          <span class="card-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5.2v13.6L19 12z"/></svg>
+          </span>
+          <span class="card-title">Nuove avventure…</span>
+          <span class="card-sub">Il prossimo capitolo</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SPLASH ══════════ -->
+  <section id="splash" class="splash" aria-label="CUCCIAFLIX">
+    <div class="splash-inner">
+      <div class="splash-kicker">Cagno &amp; Penuto presentano</div>
+      <div class="splash-logo">CUCCIAFLIX</div>
+      <div class="splash-rule" aria-hidden="true"></div>
+      <div class="splash-sub">18 anni insieme</div>
+    </div>
+    <button class="splash-start" id="btnStart" type="button">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      Tocca per iniziare
+    </button>
+  </section>
+
+  <!-- ══════════ ROTATE HINT ══════════ -->
+  <section id="rotate" class="rotate" aria-label="Ruota il telefono">
+    <div class="rotate-inner">
+      <div class="phone" aria-hidden="true">
+        <svg viewBox="0 0 60 60" fill="none">
+          <g class="phone-body">
+            <rect x="21" y="8" width="18" height="34" rx="4" stroke="currentColor" stroke-width="2"/>
+            <line x1="27" y1="38.5" x2="33" y2="38.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </g>
+          <path class="phone-arrow" d="M43.5 40.5a18 18 0 0 1-25.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path class="phone-arrow-head" d="M17.5 49.5l.5-4.7 4.6 1.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>Ruota il telefono</h2>
+      <p>Metti il telefono in orizzontale<br>per entrare nel nostro cinema.</p>
+      <p class="rotate-tip">Se non ruota, disattiva il blocco orientamento<br>dal Centro di Controllo.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ LETTER ══════════ -->
+  <section id="letter" class="letter" aria-hidden="true" aria-label="Lettera per Aurelia">
+    <button class="letter-close" id="btnLetterClose" type="button" aria-label="Chiudi la lettera">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <article class="letter-card">
+      <p class="letter-kicker">Per te</p>
+      <div class="letter-body">
+        <p class="salute">Aurelia,</p>
+        <p>ci sono date che si ricordano per sempre. La nostra è il <strong>22 novembre 2008</strong>: da quel giorno non ho più smesso di sceglierti.</p>
+        <p>Diciotto anni insieme. Abbiamo riso, abbiamo costruito una casa, è arrivata Rebecca, poi Pepe con le sue quattro zampe e il naso umido. Giorni belli e giorni difficili, sempre dalla stessa parte.</p>
+        <p>Se potessi tornare al 2008, ti sceglierei di nuovo. Subito, senza pensarci un secondo.</p>
+        <p>Questi diciotto anni sono il mio film preferito — e la cosa più bella è che il prossimo capitolo è appena iniziato.</p>
+        <p>Buon anniversario, Penuto. Ti amo.</p>
+      </div>
+      <p class="letter-sign">Tuo, <span>Cagno</span></p>
+      <p class="letter-date">22 novembre 2026</p>
+    </article>
+  </section>
+
+  <!-- ══════════ PLAYER ══════════ -->
+  <section id="player" class="player" aria-hidden="true" aria-label="Lettore video">
+    <div class="player-bar">
+      <button class="player-back" id="btnPlayerClose" type="button" aria-label="Torna alla home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4.5L7.5 12l7.5 7.5"/></svg>
+      </button>
+      <div class="player-titles">
+        <p class="player-title" id="playerTitle">—</p>
+        <p class="player-brand">CUCCIAFLIX</p>
+      </div>
+      <a class="player-yt" id="playerOpenYT" href="https://youtu.be/ADAOK8RKDC4" target="_blank" rel="noopener">YouTube ↗</a>
+    </div>
+    <div class="player-frame">
+      <div class="player-ratio">
+        <iframe id="playerFrame" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PANEL ══════════ -->
+  <div id="panel" class="panel" aria-hidden="true">
+    <button class="panel-backdrop" id="panelBackdrop" type="button" tabindex="-1" aria-label="Chiudi"></button>
+    <aside class="panel-sheet" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+      <div class="panel-head">
+        <h2 id="panelTitle">Tutti i titoli</h2>
+        <button class="panel-close" id="btnPanelClose" type="button" aria-label="Chiudi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="panel-content" id="panelContent"></div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</main>
+</body>
+</html>
