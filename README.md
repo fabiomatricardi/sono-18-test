@@ -41,6 +41,17 @@ sw.js                 offline shell
 > true full screen. The app shows these instructions on the splash screen and
 > in the "Ruota il telefono" screen.
 
+## Local-only files (not in the repo)
+
+These stay on the computer and are ignored by git, because the site does not
+need them:
+
+- `IMG_20220708_120204.jpg` — original photo (the site uses the optimized WebP)
+- `ESEMPIO_PersonalNetflix.jpg` — layout reference
+- `primo_screen.jpg`, `secondo_cscreen.jpg` — iPhone test screenshots
+- `youtube videos.txt` — source links
+- `WIP.md` — scratch notes
+
 ## Editing
 
 - Video list and titles: `js/app.js`, the `VIDEOS` object at the top.
